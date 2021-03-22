@@ -35,4 +35,5 @@ public class PeopleDao {
             throw new IllegalStateException("Cannot select country", se);
         }
     }
+    //szerintem kész
 }

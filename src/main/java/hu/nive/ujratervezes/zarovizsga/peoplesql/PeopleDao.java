@@ -23,17 +23,21 @@ public class PeopleDao {
                 PreparedStatement ps = conn.prepareStatement("SELECT ip_address FROM people " +
                         "WHERE first_name = ? AND last_name = ?");
         ) {
-            ps.setString(1, firstName);
-            ps.setString(2, lastName);
-            try (ResultSet rs = ps.executeQuery()) {
-                if (rs.next()) {
-                    result = rs.getString("ip_address");
-                }
-            }
-            return result;
+            return getString(firstName, lastName, result, ps);
         } catch (SQLException se) {
             throw new IllegalStateException("Cannot select country", se);
         }
     }
-    //szerintem kész
+
+    private String getString(String firstName, String lastName, String result, PreparedStatement ps) throws SQLException {
+        ps.setString(1, firstName);
+        ps.setString(2, lastName);
+        try (ResultSet rs = ps.executeQuery()) {
+            if (rs.next()) {
+                result = rs.getString("ip_address");
+            }
+        }
+        return result;
+    }
+
 }

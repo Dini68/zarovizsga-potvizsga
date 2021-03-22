@@ -1,4 +1,4 @@
-# Vizsgafeladat
+ # Vizsgafeladat
 
 A feladatok megoldásához az IDEA fejlesztőeszközt használd! 
 Bármely régebbi osztályt megnyithatsz.
